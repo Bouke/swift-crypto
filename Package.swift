@@ -26,18 +26,11 @@ import PackageDescription
 
 let swiftSettings: [SwiftSetting] = [
     .define("CRYPTO_IN_SWIFTPM"),
-    // To develop this on Apple platforms, uncomment this define.
-    // .define("CRYPTO_IN_SWIFTPM_FORCE_BUILD_API"),
+    .define("CRYPTO_IN_SWIFTPM_FORCE_BUILD_API"),
 ]
 
 let package = Package(
     name: "swift-crypto",
-    platforms: [
-        .macOS(.v10_15),
-        .iOS(.v13),
-        .watchOS(.v6),
-        .tvOS(.v13),
-    ],
     products: [
         .library(name: "Crypto", targets: ["Crypto"]),
         /* This target is used only for symbol mangling. It's added and removed automatically because it emits build warnings. MANGLE_START
